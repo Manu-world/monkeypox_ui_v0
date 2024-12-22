@@ -4,7 +4,10 @@
   import { browser } from '$app/environment';
   import AlertMessage from '$lib/components/AlertMessage.svelte';
   import Icon from '$lib/components/Icon.svelte';
+  import LoginIcon from '$lib/icons/LoginIcon.svelte';
+  import RegisterIcon from '$lib/icons/RegisterIcon.svelte';
 
+    
   let formData = {
     email: '',
     password: ''
@@ -106,8 +109,10 @@
 <div class="relative z-10 flex items-center justify-center min-h-screen">
   <div class="w-full max-w-md p-8 bg-white/80 backdrop-blur-md rounded-2xl shadow-2xl border border-blue-100/50 transform transition-all">
     <div class="text-center mb-8">
+      <!-- <LoginIcon className="mx-auto w-16 h-16 text-blue-500 mb-4" /> -->
+       <RegisterIcon className="mx-auto w-14 h-14 text-blue-500 mb-4" />
       <h2 class="text-3xl font-extrabold text-blue-800 mb-2">Medical Portal</h2>
-      <p class="text-gray-500 text-sm">Secure Access to Healthcare Management</p>
+      <p class="text-gray-500 text-sm">Secure Access to skin Disease Detection System</p>
     </div>
     
     <form on:submit|preventDefault={handleSubmit} class="space-y-6">

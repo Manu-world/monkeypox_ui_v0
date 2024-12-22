@@ -6,6 +6,7 @@
   import Icon from '$lib/components/Icon.svelte';
   import FaEye from 'svelte-icons/fa/FaEye.svelte';
   import FaEyeSlash from 'svelte-icons/fa/FaEyeSlash.svelte';
+  import RegisterIcon from '$lib/icons/RegisterIcon.svelte';
 
   let formData = {
     username: '',
@@ -130,8 +131,9 @@
 <div class="relative z-10 flex items-center justify-center min-h-screen">
   <div class="w-full max-w-md p-8 bg-white/80 backdrop-blur-md rounded-2xl shadow-2xl border border-blue-100/50 transform transition-all">
     <div class="text-center mb-8">
+      <RegisterIcon className="mx-auto w-14 h-14 text-blue-500 mb-4" />
       <h2 class="text-3xl font-extrabold text-blue-800 mb-2">Create Account</h2>
-      <p class="text-gray-500 text-sm">Join Our Medical Healthcare Platform</p>
+      <p class="text-gray-500 text-sm">Join Our Skin Disease Detection Platform</p>
     </div>
     
     <form on:submit|preventDefault={handleSubmit} class="space-y-6">
