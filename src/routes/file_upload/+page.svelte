@@ -1,4 +1,4 @@
-<script lang="ts">
+<script >
   import { onMount } from 'svelte';
   import { goto } from '$app/navigation';
   import { page } from '$app/stores';
@@ -7,16 +7,21 @@
   import { predictImage, getUserHistory, downloadUserHistoryPDF } from '$lib/api/image';
   import { getToken, authStore } from '$lib/stores/auth';
 
-  let file: File | null = null;
-  let error: string | null = null;
-  let result: { label: string; confidence: number } | null = null;
+  let file = null;
+  let error = null;
+  let result = null;
   let loading = false;
-  let history: any[] = [];
+  let history = [];
   let isSidebarOpen = false;
 
   onMount(async () => {
+    const token = getToken();
+    if (!token) {
+      goto('/login');
+      return;
+    }
+
     try {
-      const token = getToken();
       if (token) {
         history = await getUserHistory();
       }
@@ -43,8 +48,8 @@
     }
   }
 
-  function handleFileChange(e: Event) {
-    const input = e.target as HTMLInputElement;
+  function handleFileChange(e) {
+    const input = e.target;
     const selectedFile = input.files?.[0] || null;
     file = selectedFile;
   }

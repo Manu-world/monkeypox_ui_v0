@@ -20,6 +20,7 @@ export function createAuthStore() {
     login: async (userData) => {
       try {
         const response = await axios.post(`${API_URL}login`, userData);
+        console.log('response', response);
         const { token, user } = response.data;
 
         localStorage.setItem('authToken', token);
